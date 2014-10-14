@@ -1,0 +1,15 @@
+*.xml
+*.snm
+*.bbl
+*.nav 
+*.vrb 
+*.aux 
+*.bcf 
+*.fls 
+*.log 
+*.out 
+*.pyg 
+*.toc 
+*.blg
+out
+main.pdf

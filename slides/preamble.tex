@@ -1,0 +1,146 @@
+\usepackage{url}
+\usepackage{hyperref}
+\usepackage{booktabs}
+\usepackage{minted}
+\usepackage{subcaption}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+\usepackage{fontspec}
+\usepackage{pgf}  
+\usepackage[absolute, verbose, overlay]{textpos}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{fancybox}
+\usepackage{graphicx}
+\usepackage{biblatex}
+\usepackage{enumerate}
+\usepackage{ulem}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Style Setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% remove the navigation bar
+\beamertemplatenavigationsymbolsempty
+
+\usecolortheme{rose}
+\useinnertheme[shadow]{rounded}
+\useoutertheme{default}
+
+% title style
+\setbeamertemplate{frametitle} {%
+\huge{\textbf{\underline{\insertframetitle}}} \par
+}
+
+% footnote font
+\renewcommand{\footnotesize}{\tiny}
+
+% font
+\usefonttheme{professionalfonts} % using non standard fonts for beamer
+\usefonttheme{serif} % default family is serif
+\setmainfont{Liberation Serif}
+
+% show current page # / total page #
+\setbeamerfont{page number in head/foot}{size=\scriptsize}
+\setbeamertemplate{footline}[frame number]
+
+% logo
+% \logo{\pgfputat{\pgfxy(4,-4)}{\pgfbox[center,base]{\includegraphics[width=1.2cm]{logo}}}}  
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package Specific Setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+% code listing
+%%%%%%%%%%%%%%
+\lstset{%
+language=c,
+numbers=left,
+numberstyle=\color{gray},
+frame=single,
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true,
+showstringspaces=false
+}
+
+% highlight code line
+\ExplSyntaxOn
+\NewDocumentCommand \lstcolorlines { O{magenta} m }
+{%
+ \clist_if_in:nVT { #2 } { \the\value{lstnumber} }{ \color{#1} }
+ }
+ \ExplSyntaxOff
+
+
+
+%%%%%%%%%%%%%%%%%%
+% hyper link
+%%%%%%%%%%%%%%%%%%
+
+\hypersetup{%
+%allbordercolors={0 0 0},
+%pdfborderstyle={/S/U/W 0.5}
+}
+
+%%%%%%%%%%%%%%%%
+% biblatex
+%%%%%%%%%%%%%%%%
+\bibliography{main}
+% \setbeamertemplate{bibliography item}[text]
+
+%%%%%%%%%%%%%
+% text position
+%%%%%%%%%%%%%
+\setlength{\TPHorizModule}{1cm}
+\setlength{\TPVertModule}{1cm}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% highlight head row in table
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+#1\ignorespaces
+}
+
+%%%%%%%%%%%%%%%%%
+% figure caption
+%%%%%%%%%%%%%%%%%
+
+% remove the Figure prefix of caption
+\captionsetup[figure]{labelformat=empty}
+
+
+%%%%%%%%%%%%%%%%%%%
+% fancy box
+%%%%%%%%%%%%%%%%%%%
+\shadowsize=2pt
+\newenvironment{fminipage}%
+{\begin{Sbox}\begin{minipage}}%
+{\end{minipage}\end{Sbox}\shadowbox{\TheSbox}}
+
+
+%%%%%%%%%%%%%%%%%%
+% graphic
+%%%%%%%%%%%%%%%%%
+\graphicspath{ {figs/} }
+
+%%%%%%%%%%%%%%%%%%%%%%
+% customize commands
+%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\demo}[0]{\begin{center}\huge\textbf{\color{blue}{>> DEMO
+  <<}}\end{center}}
+\newcommand{\command}[1]{\texttt{\$ #1}}
+
+\newcommand{\todo}[1]{{\large\color{red}{TODO: #1}}}
+\renewcommand{\em}[1]{\textcolor{magenta}{#1}}
+\newcommand{\code}[1]{\texttt{#1}}
+
+

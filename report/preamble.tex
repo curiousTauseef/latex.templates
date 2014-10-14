@@ -1,0 +1,59 @@
+\usepackage{url}
+\usepackage{booktabs}
+\usepackage{minted}
+\usepackage{subcaption}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{tikz}
+\usepackage{listings}
+\usepackage{lstlinebgrd}
+\usepackage{caption}
+\usepackage{array}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{ulem}
+
+% remove the permission blank block
+\usepackage{etoolbox}
+\makeatletter
+\patchcmd{\maketitle}{\@copyrightspace}{}{}{}
+\makeatother
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Package Specific Setup
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%%%%%%%%%%%%%%
+% code listing
+%%%%%%%%%%%%%%
+\lstset{%
+language=c,
+numbers=left,
+numberstyle=\color{gray},
+frame=single,
+basicstyle=\small\ttfamily,
+columns=flexible,
+breaklines=true,
+showstringspaces=false
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% highlight head row in table
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcolumntype{+}{>{\global\let\currentrowstyle\relax}}
+\newcolumntype{^}{>{\currentrowstyle}}
+\newcommand{\rowstyle}[1]{\gdef\currentrowstyle{#1}%
+#1\ignorespaces
+}
+
+
+%%%%%%%%%%%%%%%%%%
+% graphic
+%%%%%%%%%%%%%%%%%
+\graphicspath{ {figs/} }
+
+%%%%%%%%%%%%%%%%%%%%%%
+% customize commands
+%%%%%%%%%%%%%%%%%%%%%%

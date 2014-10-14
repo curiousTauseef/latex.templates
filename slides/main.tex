@@ -1,0 +1,43 @@
+\documentclass[t]{beamer}
+
+\input{preamble}
+
+\title{%
+Title Goes Here
+}
+\subtitle{%
+Subtitle Goes Here
+}
+\author{%
+Jinghao Shi\\
+\href{mailto:jinghaos@buffalo.edu}{jinghaos@buffalo.edu}
+}
+\institute{%
+Dept.\ of Computer Science \& Engineering\\
+University at Buffalo
+}
+\date{\today}
+
+
+\begin{document}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% title page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+{%
+% no page #, no logo on title page
+\setbeamertemplate{footline}{}
+\setbeamertemplate{logo}{}
+\begin{frame}
+  \titlepage
+\end{frame}
+\addtocounter{framenumber}{-1}
+}
+
+\begin{frame}[t,allowframebreaks]
+  \frametitle{References}
+  {%
+    \renewcommand*{\bibfont}{\footnotesize}
+    \printbibliography
+  }
+\end{frame}
+\end{document}

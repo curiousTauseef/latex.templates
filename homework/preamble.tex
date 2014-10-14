@@ -1,0 +1,80 @@
+% hide the (ugly) borders of links
+\usepackage[hidelinks]{hyperref}
+
+% no indentation at paragraph, use line break instead
+\usepackage[parfill]{parskip}
+
+\usepackage{mdframed}
+
+% math package
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{enumerate}
+
+% custom headers and footers
+\usepackage{fancyhdr}
+
+% count page number
+\usepackage{lastpage}
+
+% multicolumn
+\usepackage{multicol}
+
+\usepackage{float}
+
+% customized margin
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+\usepackage[commentsnumbered, longend,lined,linesnumbered,ruled]{algorithm2e}
+
+\usepackage{graphicx}
+\graphicspath{ {figs/} }
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% cover page
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\makecoverpage}{
+\maketitle
+\thispagestyle{empty}
+\newpage
+% for double side printing, leave backside of cover page blank
+\begin{center}
+  \vspace*{\fill}
+  \LARGE{\textit{This page intentionally left blank.}}
+  \vspace*{\fill}
+\end{center}
+\thispagestyle{empty}
+\newpage
+% reset page number counter
+\setcounter{page}{1}
+}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% header and footer
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\pagestyle{fancy}
+\lhead{\shorttitle}
+\chead{\name}
+\rhead{\hyperemail{\email}}
+\cfoot{\thepage ~/ \pageref{LastPage}}
+\renewcommand{\headrulewidth}{1pt}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% custom commands
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\hyperemail}[1]{\href{mailto:#1}{#1}}
+
+\newcommand{\problem}[1]{
+\begin{mdframed}
+  \textbf{Problem}\quad #1
+\end{mdframed}
+}
+\newcommand{\solution}[1]{
+\textbf{Solution}\quad #1\hfill$\Box$
+}
+\newcommand{\limit}[1]{\lim_{#1 \rightarrow \infty}}
