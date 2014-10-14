@@ -40,6 +40,9 @@
 \maketitle
 \thispagestyle{empty}
 \newpage
+
+% put a blank page here for hard copy version
+\ifdefined\hardcopy
 % for double side printing, leave backside of cover page blank
 \begin{center}
   \vspace*{\fill}
@@ -48,6 +51,8 @@
 \end{center}
 \thispagestyle{empty}
 \newpage
+\fi
+
 % reset page number counter
 \setcounter{page}{1}
 }
