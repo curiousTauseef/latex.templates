@@ -9,7 +9,7 @@
 \usepackage{lstlinebgrd}
 \usepackage{fontspec}
 \usepackage{pgf}  
-\usepackage[absolute, verbose, overlay]{textpos}
+\usepackage[absolute, overlay]{textpos}
 \usepackage{caption}
 \usepackage{array}
 \usepackage{fancybox}
@@ -130,7 +130,7 @@ showstringspaces=false
 %%%%%%%%%%%%%%%%%%
 % graphic
 %%%%%%%%%%%%%%%%%
-\graphicspath{ {figs/} }
+\graphicspath{{figs/}}
 
 %%%%%%%%%%%%%%%%%%%%%%
 % customize commands
@@ -143,4 +143,15 @@ showstringspaces=false
 \renewcommand{\em}[1]{\textcolor{magenta}{#1}}
 \newcommand{\code}[1]{\texttt{#1}}
 
+\definecolor{deepblue}{RGB}{0,0,128}
 
+\newenvironment{demoframe}[1]
+{
+  \begin{frame}{#1}
+    \begin{textblock*}{3cm}(11.3cm,0cm)
+      \colorbox{deepblue}{\textbf{\large{\textcolor{white}{DEMO}}}}
+    \end{textblock*}
+}
+{
+\end{frame}
+}
