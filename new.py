@@ -20,7 +20,7 @@ def argparser():
 
 
 def main():
-    args = argparser.parse_args()
+    args = argparser().parse_args()
 
     try:
         os.makedirs(args.dest)
