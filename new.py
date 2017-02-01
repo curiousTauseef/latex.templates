@@ -23,15 +23,14 @@ def main():
     args = argparser.parse_args()
 
     try:
-        os.makedirs(os.path.join(args.dest, 'figs'))
+        os.makedirs(args.dest)
     except:
         pass
 
     for dir in ['common', args.template]:
-        for f in os.listdir(os.path.join(ROOT_DIR, dir)):
-            subprocess.check_call('cp -riv %s %s' %
-                                  (os.path.join(ROOT_DIR, dir, f),
-                                   os.path.join(args.dest)), shell=True)
+        subprocess.check_call('cp -riv %s/* %s/' %
+                              (os.path.join(ROOT_DIR, dir),
+                               os.path.join(args.dest)), shell=True)
 
 
 if __name__ == '__main__':
